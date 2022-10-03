@@ -1,10 +1,12 @@
 /* rock paper scissors coded by Chealkiin */
 
-let playerChoice = prompt('Choose: Rock, Paper or Scissors?');
-let generateSelection = function() {
+let playerChoice = prompt('Choose: Rock, Paper or Scissors?').toLowerCase();
+
+let computerChoice = computerSelection(generateSelection());
+
+function generateSelection() {
   return generatedNumber = Math.floor(Math.random() * 3);
 }
-let computerChoice = computerSelection(generateSelection());
 
 function computerSelection(n) {
   if (n === 0) {
@@ -18,14 +20,19 @@ function computerSelection(n) {
 }
 
 function playRound(userChoice, computerChoice) {
+  let playerScore = 0;
+  let computerScore = 0;
   if ((userChoice === 'rock' && computerChoice === 'scissors') || (userChoice === 'paper' && computerChoice === 'rock') || (userChoice === 'scissors' && computerChoice === 'paper')) {
-    return alert(`Congratulations, you win! ` + userChoice + ` beats ` + computerChoice);
+    return playerScore ++,
+    alert(`Congratulations, you win! ` + userChoice + ` beats ` + computerChoice + `.\n Your score: ` + playerScore + ` Computer's score: ` + computerScore);
   } else if (userChoice === computerChoice) {
     return alert(`It is a tie! You both picked ` + userChoice);
   } else {
-    return alert(`Oh man, you lose! ` + userChoice + ` does not beat ` + computerChoice);
+    return computerScore++,
+    alert(`Oh man, you lose! ` + userChoice + ` does not beat ` + computerChoice + `.\n Your score: ` + playerScore + ` Computer's score: ` + computerScore);
   }
 }
 
-console.log(computerChoice);
-console.log(playRound(playerChoice, 'scissors'));
+
+
+playRound(playerChoice, 'paper');
