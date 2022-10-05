@@ -31,7 +31,7 @@ function game() {
       return computerScore++,
       alert(`Oh man, you lose! ` + userChoice + ` does not beat ` + computerChoice + `.\n Your score: ` + playerScore + ` Computer's score: ` + computerScore);
     } else {
-      return alert('You must pick "Rock", "Paper" or "Scissors"!!');
+      return alert(`You must pick 'Rock', 'Paper' or 'Scissors'!!`);
     }
   }
 

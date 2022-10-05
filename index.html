@@ -1,12 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <title>Rock Paper Scissors</title>
+  <link rel = stylesheet href = 'scripts/styles.css'>
 </head>
 <body>
-  <script src="scripts/javascript.js"></script>
+  <div id ='pageContainer'>
+
+    <div id = 'computerContainer'>
+      <div id ='computerImage'>
+        <img src = 'img/rock.png'>
+      </div>
+    </div>
+    <h1 id = 'title'><p>Rock</p><p>Paper</p><p>Scissors</p></h1>
+    <div id ='resultsContainer'>
+      <div id = 'scoreLeft'>
+        <p>Player Score</p>
+        <p id ='playerScore'>100</p>
+      </div>
+      <div id = 'gameResults'>
+        <h2 id = 'winLose'>W/L</h2>
+        <p id = 'resultsExplanation'>X BEATS Y</p>
+      </div>
+      <div id ='scoreRight'>
+        <p>Computer Score</p>
+        <p id ='computerScore'>100</p>
+      </div>
+    </div>
+  
+    <div id = 'playerContainer'>
+      <div id = 'playerRock'>
+        <img src = 'img/rock.png' class = 'playersButtons'>
+      </div>
+      <div id = 'playerPaper'>
+        <img src = 'img/paper.png' class = 'playersButtons'>
+      </div>
+      <div id ='playerScissors'>
+        <img src = 'img/scissors.png' class = 'playersButtons'>
+      </div>
+    </div>
+
+  </div>
+
+  <script src='scripts/javascript.js' defer></script>
 </body>
 </html>
