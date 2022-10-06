@@ -15,7 +15,7 @@ body {
 #computerContainer {
   display: flex;
   justify-content: center;
-  margin-top: auto;
+  margin-top: 100px;
   margin-bottom: auto;
 }
 
@@ -25,14 +25,15 @@ img {
 }
 
 #resultsContainer {
-  background-color: #9aa5bd;
   display: flex;
   flex-direction: row;
+  height: 120px;
   width: 50%;
   justify-content: space-evenly;
   align-items: center;
   border-radius: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 #playerContainer {
@@ -43,8 +44,33 @@ img {
   width: 70%;
   justify-content: space-evenly;
   border-radius: 25px;
+  margin-bottom: 100px;
 }
 
 .playersButtons {
   cursor: pointer;
+}
+
+@keyframes test {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(-40%);
+    rotate: 30deg;
+  }
+  100% {
+    transform: translateY(-5%);
+  }
+}
+
+#animated {
+  margin-bottom: -200px;
+}
+
+#animated.animate {
+  animation-name: test;
+  animation-duration: 0.5s;
+  animation-iteration-count: 3;
+  animation-timing-function: ease-in-out;
 }
