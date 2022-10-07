@@ -35,12 +35,17 @@ function animateComputer() {
   setTimeout(function() {
     animation.classList.toggle('animate');
   }, 1600);
-  if (computerChoice === 'rock') {
-    animation.addEventListener('animationend', updateRock);
-  } else if (computerChoice === 'paper') {
-    animation.addEventListener('animationend', updatePaper);
-  } else if (computerChoice === 'scissors') {
-    animation.addEventListener('animationend', updateScissors);
+  
+  switch (computerChoice) {
+    case 'rock':
+      animation.addEventListener('animationend', updateRock);
+      break;
+    case 'paper':
+      animation.addEventListener('animationend', updatePaper);
+      break;
+    case 'scissors':
+      animation.addEventListener('animationend', updateScissors);
+      break;
   }
 }
 
@@ -56,98 +61,111 @@ function updateScissors() {
 
 function playRock() {
   computerChoice = computerSelection(generateNumber());
-  if (computerChoice === 'scissors') {
-    return playerScore++,
-    setTimeout(function() {
-      resultsContainer.style.backgroundColor = '#9aa5bd';
-      playerScoreDisplay.textContent = `Player Score: ${playerScore}` ,
-      compScoreDisplay.textContent = `Player Score: ${computerScore}`,
-      resultsDisplay.textContent = `WIN!`  }, 1600),
-    animateComputer();
-  } else if (computerChoice === 'rock') {
-    setTimeout(function() {
-      resultsContainer.style.backgroundColor = '#9aa5bd';
-      playerScoreDisplay.textContent = `Player Score: ${playerScore}`,
-      compScoreDisplay.textContent = `Player Score: ${computerScore}`,
-      resultsDisplay.textContent = `DRAW!`
-    }, 1600),
-    animateComputer();
-  } else  if (computerChoice === 'paper') {
-    computerScore++,
-    setTimeout(function() {
-      resultsContainer.style.backgroundColor = '#9aa5bd';
-      playerScoreDisplay.textContent = `Player Score: ${playerScore}`,
-      compScoreDisplay.textContent = `Player Score: ${computerScore}`,
-      resultsDisplay.textContent = `LOSE!`
-    }, 1600),
-    animateComputer();
-  } else {
-    console.log(`I have no idea what you've done here...`);
-  }
+  switch (computerChoice) {
+    case 'scissors':
+      playerScore++;
+      setTimeout(function() {
+        resultsContainer.style.backgroundColor = '#9aa5bd';
+        playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
+        compScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+        resultsDisplay.textContent = `WIN!`
+      }, 1600);
+      animateComputer();
+      break;
+
+    case 'paper':
+      computerScore++;
+      setTimeout(function() {
+        resultsContainer.style.backgroundColor = '#9aa5bd';
+        playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
+        compScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+        resultsDisplay.textContent = `LOSE!`
+      }, 1600);
+      animateComputer();
+      break;
+
+      case 'rock':
+        setTimeout(function() {
+          resultsContainer.style.backgroundColor = '#9aa5bd';
+          playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
+          compScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+          resultsDisplay.textContent = `DRAW!`
+        }, 1600);
+        animateComputer();
+        break;
+      }
 }
 
 function playPaper() {
   computerChoice = computerSelection(generateNumber());
-  if (computerChoice === 'rock') {
-    return playerScore++,
+  switch (computerChoice) {
+    case 'rock':
+      playerScore++;
       setTimeout(function() {
         resultsContainer.style.backgroundColor = '#9aa5bd';
-        playerScoreDisplay.textContent = `Player Score: ${playerScore}` ,
-        compScoreDisplay.textContent = `Player Score: ${computerScore}`,
+        playerScoreDisplay.textContent = `Player Score: ${playerScore}` ;
+        compScoreDisplay.textContent = `Computer Score: ${computerScore}`;
         resultsDisplay.textContent = `WIN!`
-      }, 1600),
+      }, 1600);
       animateComputer();
-  } else if (computerChoice === 'paper') {
-      setTimeout(function() {
-        resultsContainer.style.backgroundColor = '#9aa5bd';
-        playerScoreDisplay.textContent = `Player Score: ${playerScore}`,
-        compScoreDisplay.textContent = `Player Score: ${computerScore}`,
-        resultsDisplay.textContent = `DRAW!`
-      }, 1600),
-      animateComputer();
-  } else  if (computerChoice === 'scissors') {
-    computerScore++,
+      break;
+
+    case 'scissors':
+    computerScore++;
     setTimeout(function() {
       resultsContainer.style.backgroundColor = '#9aa5bd';
-      playerScoreDisplay.textContent = `Player Score: ${playerScore}`,
-      compScoreDisplay.textContent = `Player Score: ${computerScore}`,
+      playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
+      compScoreDisplay.textContent = `Computer Score: ${computerScore}`;
       resultsDisplay.textContent = `LOSE!`
-    }, 1600),
+    }, 1600);
     animateComputer();
-  } else {
-    console.log(`I have no idea what you've done here...`);
+    break;
+
+    case 'paper':
+      setTimeout(function() {
+        resultsContainer.style.backgroundColor = '#9aa5bd';
+        playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
+        compScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+        resultsDisplay.textContent = `DRAW!`
+      }, 1600);
+      animateComputer();
+      break;
   }
 }
 
 function playScissors() {
   computerChoice = computerSelection(generateNumber());
-  if (computerChoice === 'paper') {
-    return playerScore++,
-    setTimeout(function() {
-      resultsContainer.style.backgroundColor = '#9aa5bd';
-      playerScoreDisplay.textContent = `Player Score: ${playerScore}` ,
-      compScoreDisplay.textContent = `Player Score: ${computerScore}`,
-      resultsDisplay.textContent = `WIN!`
-    }, 1600),
-    animateComputer();
-  } else if (computerChoice === 'scissors') {
+  switch (computerChoice) {
+    case 'paper':
+      playerScore++;
       setTimeout(function() {
         resultsContainer.style.backgroundColor = '#9aa5bd';
-        playerScoreDisplay.textContent = `Player Score: ${playerScore}`,
-        compScoreDisplay.textContent = `Player Score: ${computerScore}`,
-        resultsDisplay.textContent = `DRAW!`
-      }, 1600),
+        playerScoreDisplay.textContent = `Player Score: ${playerScore}` ;
+        compScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+        resultsDisplay.textContent = `WIN!`
+      }, 1600);
       animateComputer();
-  } else  if (computerChoice === 'rock') {
-    computerScore++,
-    setTimeout(function() {
-      resultsContainer.style.backgroundColor = '#9aa5bd';
-      playerScoreDisplay.textContent = `Player Score: ${playerScore}`,
-      compScoreDisplay.textContent = `Player Score: ${computerScore}`,
-      resultsDisplay.textContent = `LOSE!`
-    }, 1600),
-    animateComputer();
-  } else {
-    console.log(`I have no idea what you've done here...`);
+      break;
+
+    case 'rock':
+      computerScore++;
+      setTimeout(function() {
+        resultsContainer.style.backgroundColor = '#9aa5bd';
+        playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
+        compScoreDisplay.textContent = `Computer Score: ${computerScore}`;
+        resultsDisplay.textContent = `LOSE!`
+      }, 1600);
+      animateComputer();
+      break;
+
+      case 'scissors':
+          setTimeout(function() {
+            resultsContainer.style.backgroundColor = '#9aa5bd';
+            playerScoreDisplay.textContent = `Player Score: ${playerScore}`,
+            compScoreDisplay.textContent = `Computer Score: ${computerScore}`,
+            resultsDisplay.textContent = `DRAW!`
+          }, 1600),
+          animateComputer();
+          break;
   }
 }
