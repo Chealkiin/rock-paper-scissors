@@ -30,6 +30,7 @@ function computerSelection(n) {
 }
 
 function animateComputer() {
+  console.log(computerChoice);
   animation.src = 'img/rock.png';
   animation.classList.toggle('animate');
   setTimeout(function() {
@@ -39,14 +40,24 @@ function animateComputer() {
   switch (computerChoice) {
     case 'rock':
       animation.addEventListener('animationend', updateRock);
+      setTimeout(function() {
+        animation.removeEventListener('animationend', updateRock);
+      }, 1600);
       break;
     case 'paper':
       animation.addEventListener('animationend', updatePaper);
+      setTimeout(function() {
+        animation.removeEventListener('animationend', updatePaper);
+      }, 1600);
       break;
     case 'scissors':
       animation.addEventListener('animationend', updateScissors);
+      setTimeout(function() {
+        animation.removeEventListener('animationend', updateScissors);
+      }, 1600);
       break;
   }
+
 }
 
 function updatePaper() {
@@ -161,10 +172,10 @@ function playScissors() {
       case 'scissors':
           setTimeout(function() {
             resultsContainer.style.backgroundColor = '#9aa5bd';
-            playerScoreDisplay.textContent = `Player Score: ${playerScore}`,
-            compScoreDisplay.textContent = `Computer Score: ${computerScore}`,
+            playerScoreDisplay.textContent = `Player Score: ${playerScore}`;
+            compScoreDisplay.textContent = `Computer Score: ${computerScore}`;
             resultsDisplay.textContent = `DRAW!`
-          }, 1600),
+          }, 1600);
           animateComputer();
           break;
   }
